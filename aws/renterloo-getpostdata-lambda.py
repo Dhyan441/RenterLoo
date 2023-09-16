@@ -1,6 +1,7 @@
 import boto3
 import json
 
+# only needed if you're returning something not in json format
 def respond(res):
     return {
         'statusCode': '200', 
@@ -11,7 +12,17 @@ def respond(res):
     }
 
 def lambda_handler(event, context):
-    body = event['body']
-    addressId = json.loads(body)['addressId']
-    return respond(addressId)
     
+    addressId = event['addressId']
+    
+    client = boto3.resource('dynamodb')
+    table = client.Table("renterloo-posts-db")
+    
+    data_raw = table.get_item(
+        TableName='renterloo-posts-db',
+        Key={'addressId': addressId}
+        )
+    
+    data_json = data_raw['Item']
+
+    return data_json
