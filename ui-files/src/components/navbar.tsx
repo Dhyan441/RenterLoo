@@ -199,7 +199,7 @@ function PostProperty() {
     <React.Fragment>
       <Menu open={isMenuOpen} handler={setIsMenuOpen}>
         <MenuHandler>
-          <Typography as="a" href="/ui-files/src/components/presentation/findProperty.tsx" variant="small" className="font-normal outline-none focus:outline-none">
+          <Typography as="a" href="/astro-launch-ui/postProperty" variant="small" className="font-normal outline-none focus:outline-none">
             <MenuItem
               {...triggers}
               className="hidden items-center gap-2 text-blue-gray-900 lg:flex lg:rounded-full"
@@ -241,7 +241,7 @@ function FindProperty() {
     <React.Fragment>
       <Menu open={isMenuOpen} handler={setIsMenuOpen}>
         <MenuHandler>
-          <Typography as="a" href="#" variant="small" className="font-normal outline-none focus:outline-none">
+          <Typography as="a" href="/astro-launch-ui/findProperty" variant="small" className="font-normal outline-none focus:outline-none">
             <MenuItem
               {...triggers}
               className="hidden items-center gap-2 text-blue-gray-900 lg:flex lg:rounded-full"
