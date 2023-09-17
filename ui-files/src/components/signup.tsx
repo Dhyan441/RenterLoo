@@ -1,5 +1,5 @@
 import ThemeProvider from "./theme-provider";
-import Navbar from "./defaultNavbar"
+import Navbar from "./navbar"
  
 import { Typography, Input, Button } from "@material-tailwind/react";
 
