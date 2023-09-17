@@ -16,17 +16,21 @@ const linkStyle = {
 
 const imgStyle = {
   width: '100%',
+  height: '350px',
   borderTopLeftRadius: '10px',
   borderTopRightRadius: '10px',
 };
 
-const Property = ({ url, imageUrl, title, description }) => {
+const Property = ({ url, imageUrl, address, price, email, term, info }) => {
   return (
     <div style={cardStyle}>
       <a href={url} style={linkStyle}>
-        <img src={imageUrl} alt="Image" style={imgStyle} />
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <img src={imageUrl} alt="Image" style={imgStyle}/>
+        <h2><b>{address}</b></h2>
+        <p>{price}</p>
+        <p>{term}</p>
+        <p>{email}</p>
+        <p><br/><i>Additional info:</i><br/>{info}</p>
       </a>
     </div>
   );
