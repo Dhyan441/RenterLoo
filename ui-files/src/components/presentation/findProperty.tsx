@@ -49,8 +49,14 @@ export function FindProperty() {
 
     const data = []
     
+    // template
     // {data.map((item,i) => {
     //     return <Property url={item.url} title={item.title} description={item.description} imageUrl={item.imageUrl}/>
+    // })}
+
+    // kieran (updated)
+    // {data.map((item,i) => {
+    //     return <Property url={"mailto: " + item.email} address={item.address} price={"$" + item.price + "/month"} email={item.email} term={item.term} info={item.info}imageUrl={item.imageUrl}/>
     // })}
 
     return (
