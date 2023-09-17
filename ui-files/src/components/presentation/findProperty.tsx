@@ -45,7 +45,14 @@ export function FindProperty() {
     // const infos = ["gym in the building", "private bathroom, shared kitchen"];
 
     const imgPath = "../../../images/"
-    const imageUrls = [imgPath+'elora.jpg', imgPath+'icon.png']
+    const imageUrls = [
+        imgPath+'elora.jpg', 
+        imgPath+'icon.png', 
+        imgPath+'westcourt-random1.jpg', 
+        imgPath+'westcourt-random2.jpg',
+        imgPath+'westcourt-random3.jpg',
+        imgPath+'westcourt-random4.jpg'
+    ]
 
     // test data (in raw format)
     const data = [  
@@ -72,7 +79,7 @@ export function FindProperty() {
             <h1 style={{ textAlign: "center", fontSize: '2rem', marginTop: '100px' }}>Find a Property</h1>
             <div style={{ width: "100vw", padding: "20px", marginTop: '0px', display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                 {data.map((jsonObj, i) => {
-                return <Property url={"mailto: " + jsonObj.email.S} address={jsonObj.address.S} price={"$" + jsonObj.price.S + "/month"} email={jsonObj.email.S} term={jsonObj.term.S} info={jsonObj.info.S} imageUrl={imageUrls[i]} />
+                return <Property url={"mailto: " + jsonObj.email.S} address={jsonObj.address.S} price={"$" + jsonObj.price.S + "/month"} email={jsonObj.email.S} term={jsonObj.term.S} info={jsonObj.info.S} imageUrl={imageUrls[i % 5]} />
                 })}
             </div>
             </div>
