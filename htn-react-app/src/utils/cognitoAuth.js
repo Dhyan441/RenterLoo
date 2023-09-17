@@ -1,5 +1,5 @@
 import cognitoConfig from "../config/cognitoConfig.json";
-import Amplify, { Auth } from "aws-amplify";
+import { Auth, Amplify } from "aws-amplify";
 
 Amplify.configure({
     Auth: {
@@ -11,14 +11,25 @@ Amplify.configure({
 
 async function signUp(username, email, name, password) {
     return await Auth.signUp({
-        username: username,
-        email: email,
-        name: name,
+        username,
         password,
+        'attributes': {
+            'email': email,
+            'preferred_username': username,
+            'name': name
+        }
     });
 }
 
-// the email field could be the user's email or their username (Cognito allows both)
+async function confirmSignUp(email, code) {
+    return await Auth.confirmSignUp(email, code);
+}
+
+async function resendConfirmationCode(username) {
+    return await Auth.resendSignUp(username);
+}
+
+// email must be email for now!!
 async function signIn(email, password) {
     return await Auth.signIn(email, password);
 }
@@ -71,5 +82,7 @@ export {
     signOut,
     getIdToken,
     changePassword,
-    getCurrentUser,
+    confirmSignUp,
+    resendConfirmationCode,
+    getCurrentUser
 };

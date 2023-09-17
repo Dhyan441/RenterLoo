@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getCurrentUser } from "../utils/cognitoAuth";
+import { getCurrentUser } from "../../utils/cognitoAuth";
 import { Hub } from "aws-amplify";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import SignOut from "./SignOut";
+import VerifyEmailWithCode from "./VerifyEmailWithCode";
+import ResendVerificationCode from "./ResendVerificationCode";
 
-import {
-    ChangePassword,
-    SignIn,
-    SignUp,
-    SignOut,
-} from "./auth";
 
 export default function AuthHub() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -60,12 +59,12 @@ export default function AuthHub() {
                         <SignOut />
                     </>
                 )}
-    
-                {currentUser && !currentUser.identities && (
-                    <>
-                        <ChangePassword />
-                    </>
-                )}
+                {(!currentUser || !currentUser.email_verified) && (
+                <>
+                    <VerifyEmailWithCode />
+                    <ResendVerificationCode />
+                </>
+            )}
             </div>
         );
     }
