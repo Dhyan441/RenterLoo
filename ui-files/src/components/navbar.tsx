@@ -177,6 +177,90 @@ function AccountListMenu() {
   );
 }
 
+function PostProperty() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+ 
+  const triggers = {
+    onMouseEnter: () => setIsMenuOpen(true),
+    onMouseLeave: () => setIsMenuOpen(false),
+  };
+ 
+  const renderItems = accountItems.map(({ title, href }) => (
+    <a href={href} key={title}>
+      <MenuItem>
+        <Typography variant="paragraph" color="blue-gray" className="mb-1 font-normal">
+          {title}
+        </Typography>
+      </MenuItem>
+    </a>
+  ));
+ 
+  return (
+    <React.Fragment>
+      <Menu open={isMenuOpen} handler={setIsMenuOpen}>
+        <MenuHandler>
+          <Typography as="a" href="/ui-files/src/components/presentation/findProperty.tsx" variant="small" className="font-normal outline-none focus:outline-none">
+            <MenuItem
+              {...triggers}
+              className="hidden items-center gap-2 text-blue-gray-900 lg:flex lg:rounded-full"
+            >
+              <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Post A Property{" "}
+            </MenuItem>
+          </Typography>
+        </MenuHandler>
+      </Menu>
+      <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
+        <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Post A Property{" "}
+      </MenuItem>
+      <ul className="ml-6 flex w-full flex-col gap-1 lg:hidden">
+        {renderItems}
+      </ul>
+    </React.Fragment>
+  );
+}
+
+function FindProperty() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+ 
+  const triggers = {
+    onMouseEnter: () => setIsMenuOpen(true),
+    onMouseLeave: () => setIsMenuOpen(false),
+  };
+ 
+  const renderItems = accountItems.map(({ title, href }) => (
+    <a href={href} key={title}>
+      <MenuItem>
+        <Typography variant="paragraph" color="blue-gray" className="mb-1 font-normal">
+          {title}
+        </Typography>
+      </MenuItem>
+    </a>
+  ));
+ 
+  return (
+    <React.Fragment>
+      <Menu open={isMenuOpen} handler={setIsMenuOpen}>
+        <MenuHandler>
+          <Typography as="a" href="#" variant="small" className="font-normal outline-none focus:outline-none">
+            <MenuItem
+              {...triggers}
+              className="hidden items-center gap-2 text-blue-gray-900 lg:flex lg:rounded-full"
+            >
+              <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Find A Property{" "}
+            </MenuItem>
+          </Typography>
+        </MenuHandler>
+      </Menu>
+      <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
+        <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Find A Property{" "}
+      </MenuItem>
+      <ul className="ml-6 flex w-full flex-col gap-1 lg:hidden">
+        {renderItems}
+      </ul>
+    </React.Fragment>
+  );
+}
+
 // nav list menu
 const navListMenuItems = [
   {
@@ -220,24 +304,24 @@ function NavListMenu() {
               {...triggers}
               className="hidden items-center gap-2 text-blue-gray-900 lg:flex lg:rounded-full"
             >
-              <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Pages{" "}
-              <ChevronDownIcon
+              <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Meet The Team{" "}
+              {/* <ChevronDownIcon
                 strokeWidth={2}
                 className={`h-3 w-3 transition-transform ${
                   isMenuOpen ? "rotate-180" : ""
                 }`}
-              />
+              /> */}
             </MenuItem>
           </Typography>
         </MenuHandler>
-        <MenuList
+        {/* <MenuList
           {...triggers}
           className="hidden grid-cols-7 gap-3 overflow-visible lg:grid"
         >
           <ul className="col-span-12 flex w-full flex-col gap-1 outline-none focus:outline-none">
             {renderItems}
           </ul>
-        </MenuList>
+        </MenuList> */}
       </Menu>
       <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
         <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Pages{" "}
@@ -261,6 +345,8 @@ function NavList() {
   return (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
       <NavListMenu />
+      <PostProperty />
+      <FindProperty />
       <AccountListMenu />
 
       {navListItems.map(({ label, icon }, key) => (
@@ -318,13 +404,10 @@ export default function ComplexNavbar() {
       }`}
     >
       <div className="relative mx-auto flex items-center text-blue-gray-900">
-        <Typography
-          as="a"
-          href="/"
-          className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
-        >
+        <img src={'logo/logo.svg'} alt="Image"/>
+        {/*<Typography as="a" href="/" className="mr-4 ml-2 cursor-pointer py-1.5 font-medium">
           AstroLaunch UI
-        </Typography>
+        </Typography> */}
         <div className="hidden lg:flex ml-auto">
           <NavList />
         </div>
@@ -337,19 +420,6 @@ export default function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
-        <a href="https://discord.gg/WCvQWMwT" target="_blank">
-          <Button size="sm" color="dark" variant="text">
-            <i className="fab fa-discord text-lg leading-none" aria-hidden="true"></i>
-          </Button>
-        </a>
-        <a href="https://github.com/creativetimofficial/astro-launch-ui" target="_blank">
-          <Button size="sm" color="dark" variant="text">
-            <i className="fab fa-github text-xl leading-none" aria-hidden="true"></i>
-          </Button>
-        </a>
-        <a href="/astro-launch-ui/#examplePages">
-          <Button color="dark">Get started</Button>
-        </a>
       </div>
       <Collapse open={isNavOpen} className="overflow-scroll">
         <NavList />
