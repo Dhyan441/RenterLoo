@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostProperty from '../components/presentation/postRoom/postProperty'
+
+---
+
+<Layout title="Post Property">
+	<main>
+    <PostProperty client:only="react" />
+  </main>
+</Layout>

@@ -1,2 +1,4 @@
 .DS_Store
-node_modules/
+ui-files/node_modules
+ui-files/s3-upload/node_modules
+htn-react-app/node_modules

@@ -27,27 +27,35 @@ function FeatureCard({ icon, title, children }) {
 const features = [
   {
     icon: (
-      <img className="w-32 mx-auto mb-4" src="icon1.png" />
+      <img className="w-32 mx-auto mb-4" src="/public/dhyan.jpg" />
     ),
-    title: "For Designers",
+    title: "Dhyan Patel",
     description:
       "This template comes packed with designer files based on Figma.",
   },
   {
     icon: (
-      <img className="w-32 mx-auto mb-4" src="icon2.png" />
+      <img className="w-32 mx-auto mb-4" src="/public/hamza.jpg" />
     ),
-    title: "For Developers",
+    title: "Hamza Mostafa",
     description:
       "Save months of work when you use our fully coded components and pages.",
   },
   {
     icon: (
-      <img className="w-32 mx-auto mb-4" src="icon3.png" />
+      <img className="w-32 mx-auto mb-4" src="/public/kieran.jpg" />
     ),
-    title: "For Store Owners",
+    title: "Kieran Hulsman",
     description:
       "Save time and money by helping your team focus on customization and features.",
+  },
+  {
+    icon: (
+      <img className="w-32 mx-auto mb-4" src="/public/saaniya.jpg" />
+    ),
+    title: "Saaniya Saraf",
+    description:
+      "Front End Developer",
   }
 ];
 
@@ -59,7 +67,13 @@ export function FeatureLanding() {
           
         </div>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-y-20 md:grid-cols-2 lg:grid-cols-3">
+      <div className="text-center lg:text-centre">
+        <Typography variant="h2" color="blue-gray" className="font-grey">
+          Meet The Team
+        </Typography>
+          Four Software Engineering students, with a mission.
+      </div>
+      <div className="container mx-auto grid grid-cols-1 gap-y-20 md:grid-cols-2 lg:grid-cols-4">
         {features.map(({ icon, title, description }) => (
           <FeatureCard key={title} icon={icon} title={title}>
             {description}
