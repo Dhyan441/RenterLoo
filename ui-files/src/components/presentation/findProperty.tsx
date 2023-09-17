@@ -37,27 +37,40 @@ export function FindProperty() {
     // const data2 = getData(); 
     // console.log(data2);
     // const urls = ["data2"];
-    const urls = ['https://maps.app.goo.gl/cqLPqHmVmUeMDoLf6', 'https://maps.app.goo.gl/jA3jR3A7Ai7d1YeD8']
-    const addresses = ['330 Phillip St, Waterloo', '250 Phillip St, Waterloo']
-    const prices = ["1000", "850"];
-    const terms = ["Winter 2024", "Winter-Spring 2024"];
-    const emails = ["alisha.lee@uwaterloo.ca", "justin.wong@uwaterloo.ca"];
-    const infos = ["gym in the building", "private bathroom, shared kitchen"];
+    // const urls = ['https://maps.app.goo.gl/jA3jR3A7Ai7d1YeD8', 'https://maps.app.goo.gl/cqLPqHmVmUeMDoLf6']
+    // const addresses = ['330 Phillip St, Waterloo', '250 Phillip St, Waterloo']
+    // const prices = ["1000", "850"];
+    // const terms = ["Winter 2024", "Winter-Spring 2024"];
+    // const emails = ["alisha.lee@uwaterloo.ca", "justin.wong@uwaterloo.ca"];
+    // const infos = ["gym in the building", "private bathroom, shared kitchen"];
 
     const imgPath = "../../../images/"
-    const imageUrls = [imgPath+'icon.png', imgPath+'elora.jpg']
+    const imageUrls = [
+        imgPath+'elora.jpg', 
+        imgPath+'icon.png', 
+        imgPath+'westcourt-random1.jpg', 
+        imgPath+'westcourt-random2.jpg',
+        imgPath+'westcourt-random3.jpg',
+        imgPath+'westcourt-random4.jpg'
+    ]
 
-    const data = []
-    
-    // template
-    // {data.map((item,i) => {
-    //     return <Property url={item.url} title={item.title} description={item.description} imageUrl={item.imageUrl}/>
-    // })}
-
-    // kieran (updated)
-    // {data.map((item,i) => {
-    //     return <Property url={"mailto: " + item.email} address={item.address} price={"$" + item.price + "/month"} email={item.email} term={item.term} info={item.info}imageUrl={item.imageUrl}/>
-    // })}
+    // test data (in raw format)
+    const data = [  
+        {
+        info: { S: 'private bathroom, shared kitchen' },
+        term: { S: 'Winter-Spring 2024' },
+        address: { S: '250 Phillip St' },
+        email: { S: 'julian.wong@uwaterloo.ca' },
+        price: { S: '860' },
+        },
+        {
+        info: { S: 'gym in building' },
+        term: { S: 'Winter 2024' },
+        address: { S: '330 Phillip St' },
+        email: { S: 'alisha.lee@uwaterloo.ca' },
+        price: { S: '1050' },
+      }
+    ];
 
     return (
         <ThemeProvider>
@@ -65,8 +78,8 @@ export function FindProperty() {
             <div>
             <h1 style={{ textAlign: "center", fontSize: '2rem', marginTop: '100px' }}>Find a Property</h1>
             <div style={{ width: "100vw", padding: "20px", marginTop: '0px', display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-                {addresses.map((address, i) => {
-                return <Property url={urls[i]} address={address} price={"$" + prices[i] + "/month"} email={emails[i]} term={terms[i]} info={infos[i]} imageUrl={imageUrls[i]} />
+                {data.map((jsonObj, i) => {
+                return <Property url={"mailto: " + jsonObj.email.S} address={jsonObj.address.S} price={"$" + jsonObj.price.S + "/month"} email={jsonObj.email.S} term={jsonObj.term.S} info={jsonObj.info.S} imageUrl={imageUrls[i % 5]} />
                 })}
             </div>
             </div>
