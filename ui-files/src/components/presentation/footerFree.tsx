@@ -97,7 +97,7 @@ const TECHS = [
 export function Footer() {
   return (
     <footer className="relative z-50 bg-white px-8 pt-12 pb-6">
-      <div className="container mx-auto">
+      {/* <div className="container mx-auto">
         <div className="flex flex-wrap">
           <div className="w-full md:w-4/12">
             <Typography
@@ -245,7 +245,7 @@ export function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 }

@@ -299,29 +299,15 @@ function NavListMenu() {
     <React.Fragment>
       <Menu open={isMenuOpen} handler={setIsMenuOpen}>
         <MenuHandler>
-          <Typography as="a" href="#" variant="small" className="font-normal outline-none focus:outline-none">
+          <Typography as="a" href="/astro-launch-ui/meetTheTeam" variant="small" className="font-normal outline-none focus:outline-none">
             <MenuItem
               {...triggers}
               className="hidden items-center gap-2 text-blue-gray-900 lg:flex lg:rounded-full"
             >
               <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Meet The Team{" "}
-              {/* <ChevronDownIcon
-                strokeWidth={2}
-                className={`h-3 w-3 transition-transform ${
-                  isMenuOpen ? "rotate-180" : ""
-                }`}
-              /> */}
             </MenuItem>
           </Typography>
         </MenuHandler>
-        {/* <MenuList
-          {...triggers}
-          className="hidden grid-cols-7 gap-3 overflow-visible lg:grid"
-        >
-          <ul className="col-span-12 flex w-full flex-col gap-1 outline-none focus:outline-none">
-            {renderItems}
-          </ul>
-        </MenuList> */}
       </Menu>
       <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
         <Square3Stack3DIcon className="h-[18px] w-[18px]" /> Pages{" "}
@@ -404,7 +390,7 @@ export default function ComplexNavbar() {
       }`}
     >
       <div className="relative mx-auto flex items-center text-blue-gray-900">
-        <img src={'logo/logo.svg'} alt="Image"/>
+        <img style={{'width':'12%','height':'200%'}} src={'/logo/logo.png'} alt="Image"/>
         {/*<Typography as="a" href="/" className="mr-4 ml-2 cursor-pointer py-1.5 font-medium">
           AstroLaunch UI
         </Typography> */}
