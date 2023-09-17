@@ -1,25 +1,26 @@
 import React from "react";
-import { Card, CardBody, Typography } from "@material-tailwind/react";
+import Navbar from "./navbar";
+import { Card, CardBody, ThemeProvider, Typography } from "@material-tailwind/react";
 
 function FeatureCard({ icon, title, children }) {
   return (
     <Card color="transparent" shadow={false}>
-      <CardBody className="grid justify-center text-center">
+    <CardBody className="grid justify-center text-center">
         {icon}
         <Typography
-          variant="h5"
-          color="blue-gray"
-          className="mb-2 !font-semibold"
+        variant="h5"
+        color="blue-gray"
+        className="mb-2 !font-semibold"
         >
-          {title}
+        {title}
         </Typography>
         <Typography
-          color="blue-gray"
-          className="px-8 font-normal text-gray-700"
+        color="blue-gray"
+        className="px-8 font-normal text-gray-700"
         >
-          {children}
+        {children}
         </Typography>
-      </CardBody>
+    </CardBody>
     </Card>
   );
 }
@@ -61,26 +62,36 @@ const features = [
 
 export function FeatureLanding() {
   return (
-    <section className="px-4 mt-12">
-      <div className="container mx-auto mb-20 text-center">
-        <div className="flex justify-center align-center relative z-5">
-          
+    <ThemeProvider>
+        <Navbar/>
+        <section className="px-4 mt-12">
+        <div className="container mx-auto mb-20 text-center">
+            <div className="flex justify-center align-center relative z-5">
+            
+            </div>
         </div>
-      </div>
-      <div className="text-center lg:text-centre">
-        <Typography variant="h2" color="blue-gray" className="font-grey">
-          Meet The Team
-        </Typography>
-          Four Software Engineering students, with a mission.
-      </div>
-      <div className="container mx-auto grid grid-cols-1 gap-y-20 md:grid-cols-2 lg:grid-cols-4">
-        {features.map(({ icon, title, description }) => (
-          <FeatureCard key={title} icon={icon} title={title}>
-            {description}
-          </FeatureCard>
-        ))}
-      </div>
-    </section>
+        <div className="text-center lg:text-centre">
+            <Typography variant="h2" color="blue-gray" className="font-grey">
+            Meet The Team
+            </Typography>
+            Four Software Engineering students, with a mission.
+        </div>
+        <div className="container mx-auto grid grid-cols-1 gap-y-20 md:grid-cols-2 lg:grid-cols-4">
+            {features.map(({ icon, title, description }) => (
+            <FeatureCard key={title} icon={icon} title={title}>
+                {description}
+            </FeatureCard>
+            ))}
+        </div>
+        {/* <div className="text-center lg:text-centre">
+            <Typography variant="h2" color="blue-gray" className="font-grey">
+            Subscribe Here
+            </Typography>
+        </div>
+        <input type="text" style={{width: '300px', height: '40px',borderRadius: '10px', backgroundColor: 'grey', border: 'none', padding: '8px',}}
+        placeholder="Enter text..." /> */}
+        </section>
+    </ThemeProvider>
   );
 }
 

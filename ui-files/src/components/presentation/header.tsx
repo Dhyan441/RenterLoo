@@ -22,7 +22,7 @@ export function HeroPresentation() {
             </Typography>
              Dedicated to connecting students with rentals in Waterloo. Find a home, find it here.
           </div>
-        </div>x
+        </div>
         <div className="hidden lg:flex">
           <img src="/public/undraw_home.png" alt="components" className="absolute -top-10 right-0 w-1/2" />
         </div>
